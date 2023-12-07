@@ -13,3 +13,6 @@
 [submodule "bad-hook-liquidity-theft-via-fee-v1/lib/v4-core"]
 	path = bad-hook-liquidity-theft-via-fee-v1/lib/v4-core
 	url = https://github.com/uniswap/v4-core
+[submodule "bad-hook-liquidity-theft-via-fee-v2/lib/v4-core"]
+	path = bad-hook-liquidity-theft-via-fee-v2/lib/v4-core
+	url = https://github.com/uniswap/v4-core
