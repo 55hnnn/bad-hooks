@@ -1,0 +1,3 @@
+[submodule "bad-hook-reinitialization/lib/v4-core"]
+	path = bad-hook-reinitialization/lib/v4-core
+	url = https://github.com/uniswap/v4-core
