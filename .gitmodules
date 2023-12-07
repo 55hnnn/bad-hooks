@@ -1,3 +1,6 @@
 [submodule "bad-hook-reinitialization/lib/v4-core"]
 	path = bad-hook-reinitialization/lib/v4-core
 	url = https://github.com/uniswap/v4-core
+[submodule "bad-hook-reinitialization/lib/openzeppelin-contracts"]
+	path = bad-hook-reinitialization/lib/openzeppelin-contracts
+	url = https://github.com/openzeppelin/openzeppelin-contracts
