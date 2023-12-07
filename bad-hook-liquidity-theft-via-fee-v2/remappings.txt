@@ -1,0 +1,2 @@
+@uniswap/v4-core/contracts/=lib/v4-core/src/
+solmate/=lib/v4-core/lib/solmate/src/
