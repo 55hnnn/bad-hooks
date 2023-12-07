@@ -7,3 +7,6 @@
 [submodule "bad-hook-reinitialization/lib/periphery-next"]
 	path = bad-hook-reinitialization/lib/periphery-next
 	url = https://github.com/uniswap/periphery-next
+[submodule "bad-hook-liquidity-theft-via-fee-v1/lib/forge-std"]
+	path = bad-hook-liquidity-theft-via-fee-v1/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
