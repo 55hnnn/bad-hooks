@@ -77,7 +77,7 @@ contract EulerMedianOracleTest is HookTest, Deployers, GasSnapshot {
         medianPrice = int256(medianPrice_);
 
         // Check manipulated price
-        assertGt(medianPrice, 15);
+        assertGt(medianPrice, 150);
 
     }
 
