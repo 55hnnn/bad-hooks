@@ -22,3 +22,6 @@
 [submodule "bad-hook-median-oracle/lib/v4-periphery"]
 	path = bad-hook-median-oracle/lib/v4-periphery
 	url = https://github.com/uniswap/v4-periphery
+[submodule "bad-hook-median-oracle/lib/forge-std"]
+	path = bad-hook-median-oracle/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
