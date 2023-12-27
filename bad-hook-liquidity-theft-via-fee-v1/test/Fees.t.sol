@@ -81,6 +81,12 @@ contract FeesTest is Test, Deployers, TokenFixture, GasSnapshot {
         int24 MIN_TICK = -120;
         int24 MAX_TICK = 120;
 
+        // User adds liquidity
+        BalanceDelta balanceDelta = modifyPositionRouter.modifyPosition(key1, IPoolManager.ModifyPositionParams(MIN_TICK, MAX_TICK, liquidity));
+
+        uint256 addedAmount0 = uint256(uint128(balanceDelta.amount0()));
+        uint256 addedAmount1 = uint256(uint128(balanceDelta.amount1()));
+
         // Attack
         uint8 hookWithdrawFee = _computeFee(_oneForZero, 1) | _computeFee(_zeroForOne, 1); // max fees on both amounts (100%)
         hook.setWithdrawFee(key1, hookWithdrawFee);
@@ -89,12 +95,6 @@ contract FeesTest is Test, Deployers, TokenFixture, GasSnapshot {
         (Pool.Slot0 memory slot0,,,) = manager.pools(key1.toId());
         assertEq(slot0.hookWithdrawFee, hookWithdrawFee); // Even though the contract sets a withdraw fee it will not be applied bc the pool key.fee did not assert a withdraw flag.
 
-        // User adds liquidity
-        BalanceDelta balanceDelta = modifyPositionRouter.modifyPosition(key1, IPoolManager.ModifyPositionParams(MIN_TICK, MAX_TICK, liquidity));
-
-        uint256 addedAmount0 = uint256(uint128(balanceDelta.amount0()));
-        uint256 addedAmount1 = uint256(uint128(balanceDelta.amount1()));
-
         // User removes liquidity
         modifyPositionRouter.modifyPosition(key1, IPoolManager.ModifyPositionParams(MIN_TICK, MAX_TICK, -liquidity));
 
@@ -102,6 +102,8 @@ contract FeesTest is Test, Deployers, TokenFixture, GasSnapshot {
         assertLt(manager.hookFeesAccrued(address(key1.hooks), currency0), addedAmount0);
         assertLt(manager.hookFeesAccrued(address(key1.hooks), currency1), addedAmount1);
     }
+
+    
 
     // If zeroForOne is true, then value is set on the lower bits. If zeroForOne is false, then value is set on the higher bits.
     function _computeFee(bool zeroForOne, uint8 value) internal pure returns (uint8 fee) {
