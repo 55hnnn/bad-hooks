@@ -34,3 +34,6 @@
 [submodule "bad-hook-access-control/lib/v4-periphery"]
 	path = bad-hook-access-control/lib/v4-periphery
 	url = https://github.com/uniswap/v4-periphery
+[submodule "bad-hook-access-control/lib/v4-core"]
+	path = bad-hook-access-control/lib/v4-core
+	url = https://github.com/uniswap/v4-core
